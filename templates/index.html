@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Asistente Genesis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+  <header class="encabezado">
+    <h1>Laboratorio Dental Genesis</h1>
+    <p>Asistente virtual de atención al cliente</p>
+  </header>
+
+  <main class="contenedor">
+    <!-- Chat del cliente (HU-01, HU-02) -->
+    <section class="tarjeta" aria-labelledby="titulo-chat">
+      <h2 id="titulo-chat">Chat con el asistente</h2>
+      <div id="mensajes" class="mensajes" aria-live="polite"></div>
+      <form id="formulario-chat" class="formulario-chat" autocomplete="off">
+        <label for="entrada-mensaje" class="solo-lector">Escribe tu mensaje</label>
+        <input id="entrada-mensaje" type="text" maxlength="300"
+               placeholder="Ej: ¿Cuál es el horario? o GEN-1001" required>
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+
+    <!-- Gestión de preguntas frecuentes (HU-03) -->
+    <section class="tarjeta" aria-labelledby="titulo-faq">
+      <h2 id="titulo-faq">Preguntas frecuentes</h2>
+      <form id="formulario-faq" class="formulario-faq">
+        <input id="faq-clave" type="text" placeholder="Palabras clave (separadas por coma)" required>
+        <input id="faq-pregunta" type="text" placeholder="Pregunta" required>
+        <textarea id="faq-respuesta" rows="2" placeholder="Respuesta del asistente" required></textarea>
+        <button type="submit">Agregar</button>
+      </form>
+      <p id="estado-faq" class="estado" role="status"></p>
+      <ul id="lista-faq" class="lista-faq"></ul>
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+</body>
+</html>

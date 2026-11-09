@@ -1,0 +1,119 @@
+/* Estilos del módulo Asistente Virtual – Genesis.
+   Paleta: azul petróleo (principal) + ámbar (acento). */
+:root {
+  --color-principal: #0f4c5c;
+  --color-principal-oscuro: #0a3540;
+  --color-acento: #f4a300;
+  --color-fondo: #f3f7f8;
+  --color-texto: #1b2a30;
+  --color-borde: #d5e0e3;
+  --radio: 12px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  color: var(--color-texto);
+  background: var(--color-fondo);
+}
+
+h1, h2 { font-family: 'Space Grotesk', sans-serif; margin: 0; }
+
+.encabezado {
+  background: var(--color-principal);
+  color: #fff;
+  padding: 24px 16px;
+  text-align: center;
+  border-bottom: 4px solid var(--color-acento);
+}
+.encabezado p { margin: 6px 0 0; opacity: 0.85; }
+
+.contenedor {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+  max-width: 1000px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+.tarjeta {
+  background: #fff;
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  padding: 16px;
+}
+.tarjeta h2 { font-size: 1.1rem; margin-bottom: 12px; color: var(--color-principal); }
+
+/* ---- Chat ---- */
+.mensajes {
+  height: 320px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px;
+  background: var(--color-fondo);
+  border-radius: 8px;
+}
+.burbuja {
+  max-width: 80%;
+  padding: 8px 12px;
+  border-radius: var(--radio);
+  line-height: 1.4;
+}
+.burbuja.usuario { align-self: flex-end; background: var(--color-principal); color: #fff; }
+.burbuja.asistente { align-self: flex-start; background: #fff; border: 1px solid var(--color-borde); }
+
+.formulario-chat { display: flex; gap: 8px; margin-top: 12px; }
+.formulario-chat input { flex: 1; }
+
+/* ---- Formularios ---- */
+input, textarea {
+  font: inherit;
+  padding: 8px 10px;
+  border: 1px solid var(--color-borde);
+  border-radius: 8px;
+  width: 100%;
+}
+input:focus, textarea:focus, button:focus-visible {
+  outline: 2px solid var(--color-acento);
+  outline-offset: 1px;
+}
+button {
+  font: inherit;
+  font-weight: 500;
+  padding: 8px 16px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--color-acento);
+  color: var(--color-texto);
+  cursor: pointer;
+}
+button:hover { filter: brightness(0.95); }
+
+.formulario-faq { display: grid; gap: 8px; }
+.formulario-faq button { justify-self: start; }
+
+.estado { min-height: 1.2em; margin: 8px 0 0; font-size: 0.9rem; color: var(--color-principal); }
+
+.lista-faq { list-style: none; padding: 0; margin: 8px 0 0; display: grid; gap: 8px; }
+.lista-faq li {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 10px;
+  border: 1px solid var(--color-borde);
+  border-radius: 8px;
+}
+.lista-faq button { background: transparent; color: #a63d2f; border: 1px solid #a63d2f; padding: 4px 10px; }
+
+.solo-lector {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
